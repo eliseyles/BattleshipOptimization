@@ -1,0 +1,10 @@
+E:\study\kursach\Battleship\Battleship\bin\Debug\Battleship.exe.config
+E:\study\kursach\Battleship\Battleship\bin\Debug\Battleship.exe
+E:\study\kursach\Battleship\Battleship\bin\Debug\Battleship.pdb
+E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.csprojAssemblyReference.cache
+E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.Form1.resources
+E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.Properties.Resources.resources
+E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResource.cache
+E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.csproj.CoreCompileInputs.cache
+E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.exe
+E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.pdb
