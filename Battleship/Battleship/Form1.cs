@@ -112,5 +112,15 @@ namespace Battleship
         {
 
         }
+
+        private void GenerateBothFull_Click(object sender, EventArgs e)
+        {
+            playgroundRandom = PlaygroundUtil.GenerateFullRandomPlayground();
+            DrawPlayground(dataGridView1, playgroundRandom);
+            label1.Text = "";
+            playgroundOptimal = PlaygroundUtil.GenerateFullOptimalPlayground();
+            DrawPlayground(dataGridView2, playgroundOptimal);
+            label2.Text = "";
+        }
     }
 }

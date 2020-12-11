@@ -46,17 +46,21 @@ namespace Battleship
 
         public int[,] GenerateFullRandomPlayground()
         {
-            int[,] playground = CreateEmptyPlayground();
-            for (int i = 0; i < ships.Length; i++)
+            int[,] playground = GenerateRandomPlaygroundWithoutOnes();
+            GenerateOnesShip(playground);
+            return playground;
+        }
+
+        private void GenerateOnesShip(int[,] playground)
+        {
+            for (int i = 0; i < ones.Length; i++)
             {
-                Ship ship = new Ship(ships[i]);
+                Ship ship = new Ship(ones[i]);
                 GenerateCoordinates(playground, ship);
                 AddShipRegion(playground, ship);
                 PlaceShipOnPlayground(playground, ship);
 
             }
-            return playground;
-
         }
 
         public int[,] GenerateRandomPlaygroundWithoutOnes()
@@ -305,6 +309,13 @@ namespace Battleship
                 }
             }
             return copy;
+        }
+
+        public int[,] GenerateFullOptimalPlayground()
+        {
+            int[,] playground = GenerateOptimalPlaygroundWithoutOnes();
+            GenerateOnesShip(playground);
+            return playground;
         }
 
     }

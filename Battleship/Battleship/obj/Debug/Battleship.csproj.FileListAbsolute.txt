@@ -8,3 +8,13 @@ E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResou
 E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.csproj.CoreCompileInputs.cache
 E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.exe
 E:\study\kursach\Battleship\Battleship\obj\Debug\Battleship.pdb
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\bin\Debug\Battleship.exe.config
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\bin\Debug\Battleship.exe
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\bin\Debug\Battleship.pdb
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\obj\Debug\Battleship.csprojAssemblyReference.cache
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\obj\Debug\Battleship.Form1.resources
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\obj\Debug\Battleship.Properties.Resources.resources
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResource.cache
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\obj\Debug\Battleship.csproj.CoreCompileInputs.cache
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\obj\Debug\Battleship.exe
+e:\study\kursach\BattleshipOptimization\Battleship\Battleship\obj\Debug\Battleship.pdb
