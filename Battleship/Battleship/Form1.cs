@@ -14,7 +14,10 @@ namespace Battleship
     {
         int[,] playgroundRandom;
         int[,] playgroundOptimal;
+        int[,] shootedPlayground;
+        int[,] playground;
         PlaygroundUtil PlaygroundUtil = new PlaygroundUtil(10);
+        ShootingUtil shootingUtil = new ShootingUtil();
 
         public Form1()
         {
@@ -22,12 +25,20 @@ namespace Battleship
 
             playgroundRandom = PlaygroundUtil.CreateEmptyPlayground();
             playgroundOptimal = PlaygroundUtil.CreateEmptyPlayground();
+            shootedPlayground = PlaygroundUtil.CreateEmptyPlayground();
+            playground = PlaygroundUtil.CreateEmptyPlayground();
 
             DataGridViewInit(dataGridView1, playgroundRandom);
             DataGridViewInit(dataGridView2, playgroundOptimal);
+            DataGridViewInit(dataGridView3, shootedPlayground);
+            DataGridViewInit(dataGridView4, playground);
 
             DrawPlayground(dataGridView1, playgroundRandom);
             DrawPlayground(dataGridView2, playgroundOptimal);
+            DrawPlayground(dataGridView3, shootedPlayground);
+            DrawPlayground(dataGridView4, playground);
+            Shoot.Enabled = false;
+            ShootOptimal.Enabled = false;
 
         }
 
@@ -39,6 +50,16 @@ namespace Battleship
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
             dataGridView2.ClearSelection();
+        }
+
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+            dataGridView3.ClearSelection();
+        }
+
+        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+        {
+            dataGridView4.ClearSelection();
         }
 
         private void DrawPlayground(DataGridView dataGridView, int[,] playground)
@@ -122,5 +143,76 @@ namespace Battleship
             DrawPlayground(dataGridView2, playgroundOptimal);
             label2.Text = "";
         }
+
+        private void GetNewPlayground_Click(object sender, EventArgs e)
+        {
+            shootedPlayground = shootingUtil.GetNewShootingPlayground();
+            DrawPlayground(dataGridView3, shootedPlayground);
+            Shoot.Enabled = true;
+            ShootOptimal.Enabled = true;
+            playground = shootingUtil.GetPlayground();
+            DrawPlayground(dataGridView4, playground);
+        }
+
+        private void Shoot_Click(object sender, EventArgs e)
+        {
+            playground =  shootingUtil.Shoot();
+            DrawPlayground(dataGridView4, playground);
+            if (shootingUtil.result == 3)
+            {
+                label3.Text = "You win! Shooting number = " + shootingUtil.shootingNumber;
+            }
+            ShootOptimal.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int count = Int32.Parse(textBox1.Text);
+                shootingUtil.LoopGenerationRandom(count);
+                label4.Text = "Random algo results: " + GetStringFromList(shootingUtil.randomNumber);
+            } catch(FormatException)
+            {
+                MessageBox.Show("Wrong data", "Can't parse data", MessageBoxButtons.OK);
+            }
+        }
+
+        private String GetStringFromList(List<int> list)
+        {
+            String result = "";
+            foreach(var i in list)
+            {
+                result += i;
+                result += " ";
+            }
+            return result;
+        }
+
+        private void ShootOptimal_Click(object sender, EventArgs e)
+        {
+            playground = shootingUtil.ShootOptimal();
+            DrawPlayground(dataGridView4, playground);
+            if (shootingUtil.result == 3)
+            {
+                label3.Text = "You win! Shooting number = " + shootingUtil.shootingNumber;
+            }
+            Shoot.Enabled = false;
+        }
+
+        private void OptimalLoop_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int count = Int32.Parse(textBox1.Text);
+                shootingUtil.LoopGenerationOptimal(count);
+                label6.Text = "Optimal algo results: " + GetStringFromList(shootingUtil.optimalNumber);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Wrong data", "Can't parse data", MessageBoxButtons.OK);
+            }
+        }
     }
+    
 }

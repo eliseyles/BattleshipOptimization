@@ -143,7 +143,7 @@ namespace Battleship
             }
         }
 
-        private void AddShipRegion(int[,] playground, Ship ship)
+        public void AddShipRegion(int[,] playground, Ship ship)
         {
             int[] region = GetShipRegionCoordinates(ship);
             int fromX = region[0];
@@ -151,11 +151,19 @@ namespace Battleship
             int fromY = region[2];
             int toY = region[3];
 
+            if (toY == 10)
+            {
+                toY -= 1;
+            }
+
             for (int i = fromX; i <= toX; i++)
             {
                 for (int j = fromY; j <= toY; j++)
                 {
-                    playground[i, j] = -1;
+                    if (playground[i, j] == 0)
+                    {
+                        playground[i, j] = -1;
+                    }
                 }
             }
         }
@@ -170,7 +178,7 @@ namespace Battleship
             int fromX = ship.X == 0 ? ship.X : ship.X - 1;
             int toX = fromX - kx + ship.Size * kx + 2;
 
-            if (ship.X == playground_size - 1 || ship.X == 0 || ship.X == (playground_size - ship.Size * kx))
+            if (ship.X == playground_size - 1 || ship.X == 0 || ship.X == (playground_size - ship.Size * kx) || toX == playground_size)
             {
                 toX -= 1;
             }
@@ -178,7 +186,7 @@ namespace Battleship
             int fromY = ship.Y == 0 ? ship.Y : ship.Y - 1;
             int toY = fromY - ky + ship.Size * ky + 2;
 
-            if (ship.Y == 0 || ship.Y == playground_size - 1 || ship.Y == (playground_size - ship.Size * ky))
+            if (ship.Y == 0 || ship.Y == playground_size - 1 || ship.Y == (playground_size - ship.Size * ky) || toY == playground_size)
             {
                 toY -= 1;
             }
@@ -298,7 +306,7 @@ namespace Battleship
             }
         }
 
-        private int[,] Copy(int[,] playground)
+        public int[,] Copy(int[,] playground)
         {
             int[,] copy = CreateEmptyPlayground();
             for (int i = 0; i < playground.GetLength(0); i++)
