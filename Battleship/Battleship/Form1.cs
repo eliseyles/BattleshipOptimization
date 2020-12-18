@@ -172,6 +172,7 @@ namespace Battleship
                 int count = Int32.Parse(textBox1.Text);
                 shootingUtil.LoopGenerationRandom(count);
                 label4.Text = "Random algo results: " + GetStringFromList(shootingUtil.randomNumber);
+                Shoot.Enabled = false;
             } catch(FormatException)
             {
                 MessageBox.Show("Wrong data", "Can't parse data", MessageBoxButtons.OK);
@@ -196,6 +197,7 @@ namespace Battleship
             if (shootingUtil.result == 3)
             {
                 label3.Text = "You win! Shooting number = " + shootingUtil.shootingNumber;
+                ShootOptimal.Enabled = false;
             }
             Shoot.Enabled = false;
         }
